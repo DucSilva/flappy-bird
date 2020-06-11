@@ -32,7 +32,7 @@ ong[0] = {
 }
 
 //Make function to run game
-var fps = 100
+var fps = 90
 function run() {
     //load image
     context.drawImage(hinhnenchinh, 0, 0);
@@ -65,7 +65,12 @@ function run() {
             && (bird.y<=ong[i].y+ongtren.height||
             bird.y +birdimg.height>= ong[i].y+ khoangcachdenongduoi)    
             ){
-                return;
+                var r = confirm("You losed! \n Do you want to play again?");
+                if (r == true) {
+                    location.reload();
+                } else {
+                  
+                };
             }                 
 
     };
@@ -80,14 +85,13 @@ function run() {
 
 //thêm function cho bird bay lên khi nhấn 
 var x = screen.width;
-console.log('x===>>',x)
 if(x >= 900) {
     document.addEventListener("keydown", function(){
-        bird.y-=100;
+        bird.y-=80;
     })
 }
 document.addEventListener("touchend", function(){
-    bird.y-=100;
+    bird.y-=70;
 })
 
 run();
