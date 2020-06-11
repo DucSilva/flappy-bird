@@ -58,18 +58,18 @@ function run() {
         }
         if(ong[i].x == 0 ) ong.splice(0,1); // nếu đụng ống bên lề trái thì sẽ xóa nó đi tránh mảng ống bị đầy làm chậm
         if(ong[i].x == bird.x) score++;
-
+        
         //Thua
         if(bird.y+birdimg.height==canvas.height||
             bird.x+birdimg.width>= ong[i].x && bird.x <= ong[i].x +ongtren.width
             && (bird.y<=ong[i].y+ongtren.height||
             bird.y +birdimg.height>= ong[i].y+ khoangcachdenongduoi)    
             ){
-                var r = confirm("You losed! \n Do you want to play again?");
+                var r = confirm(`You losed! Your score: " ${score}  "\n Do you want to play again?`);
                 if (r == true) {
                     location.reload();
                 } else {
-                  
+                    window.stop();
                 };
             }                 
 
